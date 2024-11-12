@@ -10,9 +10,8 @@ import static net.serenitybdd.rest.SerenityRest.then;
 public class FirstTest {
     @Given("the get endpoint is called")
     public void theGetEndpointIsCalled() {
-        given()
-                .baseUri("https://petstore.swagger.io/v2/pet/")
-                .basePath("0")
+        given().log().all()
+                .basePath("api/v3/pet/1")
                 .accept(ContentType.JSON)
                 .get();
         then().log().all();
