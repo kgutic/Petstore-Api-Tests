@@ -11,7 +11,7 @@ public class TestConfiguration {
     public TestConfiguration() {
         try {
             configuration = new Configurations()
-                    .properties("test.properties");
+                    .combined(Thread.currentThread().getContextClassLoader().getResource("config.xml"));
         } catch (Exception e) {
             log.error("Failed to setup tests", e);
             throw new IllegalStateException("Cannot load configuration");

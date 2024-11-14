@@ -14,7 +14,6 @@
 		<encoding>UTF-8</encoding>
 
 		<serenity.version>4.2.8</serenity.version>
-		<slf4j.version>1.7.28</slf4j.version>
 		<junit-platform-launcher.version>1.11.0</junit-platform-launcher.version>
 		<junit-5.version>5.11.0</junit-5.version>
 		<logback-classic.version>1.5.8</logback-classic.version>
@@ -26,7 +25,6 @@
 		<lombok.version>1.18.34</lombok.version>
 		<javax.annotation-api.version>1.3</javax.annotation-api.version>
 		<commons-configuration2.version>2.11.0</commons-configuration2.version>
-		<tags></tags>
 	</properties>
 
 	<dependencies>
@@ -152,9 +150,6 @@
 				<groupId>net.serenity-bdd.maven.plugins</groupId>
 				<artifactId>serenity-maven-plugin</artifactId>
 				<version>${serenity.version}</version>
-				<configuration>
-					<tags>${tags}</tags>
-				</configuration>
 				<executions>
 					<execution>
 						<id>serenity-reports</id>
