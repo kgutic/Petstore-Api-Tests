@@ -23,3 +23,6 @@ For more info visit [SerenityBDD](https://serenity-bdd.github.io/).
 - Cucumber
 - Rest Assured
 - SerenityBDD
+
+### Disclaimer
+Please note that the tests in this repository are a work in progress and may be subject to frequent changes and updates. They are intended for showcase purposes and may not cover all (edge) cases of the Petstore API.
