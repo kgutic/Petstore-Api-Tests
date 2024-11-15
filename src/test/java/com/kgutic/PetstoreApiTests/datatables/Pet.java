@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Pet {
-    private long id;
     private String name;
     private long categoryId;
     private String categoryName;

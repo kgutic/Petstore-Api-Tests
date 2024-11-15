@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class PetWorld {
-    private long petId;
+    private Long petId;
 }

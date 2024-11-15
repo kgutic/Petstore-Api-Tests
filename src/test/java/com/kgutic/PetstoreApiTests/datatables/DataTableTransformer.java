@@ -8,7 +8,6 @@ public class DataTableTransformer {
     @DataTableType
     public Pet petTransformer(Map<String, String> row) {
         return new Pet(
-                Long.parseLong(row.get("id")),
                 row.get("name"),
                 Long.parseLong(row.get("categoryId")),
                 row.get("categoryName"),

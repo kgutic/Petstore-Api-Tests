@@ -18,4 +18,10 @@ public class PetService {
                 .post();
         then().log().all();
     }
+
+    public void deletePet(long petId){
+        given()
+                .basePath(PET_PATH)
+                .delete(String.valueOf(petId));
+    }
 }

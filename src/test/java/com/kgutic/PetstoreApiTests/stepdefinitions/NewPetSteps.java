@@ -36,6 +36,29 @@ public class NewPetSteps {
         petDTO = then().extract().body().as(PetDTO.class);
     }
 
+    @Given("a new pet is added with following details")
+    public void aNewPetIsAddedWithFollowingDetails(List<Map<String, String>> petTable) {
+        petDTO = createNewPetDtoFromDataTable(petTable);
+        petService.createPet(petDTO);
+    }
+
+    @When("the request is sent to delete this pet")
+    public void theRequestIsSentToDeleteThisPet() {
+        petService.deletePet(petWorld.getPetId());
+    }
+
+    @And("following details are returned in the response")
+    public void followingDetailsAreReturnedInTheResponse(List<Pet> petData) {
+        Pet expectedPet = petData.get(0);
+
+        assertThat(petDTO.getId()).isEqualTo(petWorld.getPetId());
+        assertThat(petDTO.getName()).isEqualTo(expectedPet.getName());
+        assertThat(petDTO.getCategory().getId()).isEqualTo(expectedPet.getCategoryId());
+        assertThat(petDTO.getCategory().getName()).isEqualTo(expectedPet.getCategoryName());
+        assertThat(petDTO.getPhotoUrls().get(0)).isEqualTo(expectedPet.getPhotoUrls());
+        assertThat(petDTO.getStatus().getValue()).isEqualTo(expectedPet.getStatus());
+    }
+
     private PetDTO createNewPetDtoFromDataTable(List<Map<String, String>> petTable) {
         CategoryDTO categoryDTO = new CategoryDTO()
                 .id(Long.valueOf(petTable.get(0).get("categoryId")))
@@ -54,15 +77,4 @@ public class NewPetSteps {
                 .tags(List.of(tagDTO));
     }
 
-    @And("following details are returned in the response")
-    public void followingDetailsAreReturnedInTheResponse(List<Pet> petData) {
-        Pet expectedPet = petData.get(0);
-
-        assertThat(petDTO.getId()).isEqualTo(petWorld.getPetId());
-        assertThat(petDTO.getName()).isEqualTo(expectedPet.getName());
-        assertThat(petDTO.getCategory().getId()).isEqualTo(expectedPet.getCategoryId());
-        assertThat(petDTO.getCategory().getName()).isEqualTo(expectedPet.getCategoryName());
-        assertThat(petDTO.getPhotoUrls().get(0)).isEqualTo(expectedPet.getPhotoUrls());
-        assertThat(petDTO.getStatus().getValue()).isEqualTo(expectedPet.getStatus());
-    }
 }
