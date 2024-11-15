@@ -1,4 +1,4 @@
-Feature: Delete a pet from the store
+Feature: Delete pets from the store
 
   Scenario: Delete an existing pet
     Given a new pet is added with following details
@@ -6,4 +6,4 @@ Feature: Delete a pet from the store
       | <generated> | cat  | 1          | My cats      | www.testkitty.com | 1     | testTag | available |
     When the request is sent to delete this pet
     Then the response status code is 200
-    #And the pet is deleted from the store
+    And the pet no longer exists in the store

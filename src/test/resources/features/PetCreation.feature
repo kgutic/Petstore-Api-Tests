@@ -1,4 +1,4 @@
-Feature: Add new pet to the store
+Feature: Add new pets to the store
 
   Scenario: Add a new pet
     Given a new pet is ready to be added with following details

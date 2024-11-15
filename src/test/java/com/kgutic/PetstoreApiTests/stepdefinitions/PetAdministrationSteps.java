@@ -18,7 +18,7 @@ import java.util.Map;
 import static net.serenitybdd.rest.SerenityRest.then;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class NewPetSteps {
+public class PetAdministrationSteps {
     private PetDTO petDTO;
     @Shared
     private PetService petService;
@@ -59,22 +59,33 @@ public class NewPetSteps {
         assertThat(petDTO.getStatus().getValue()).isEqualTo(expectedPet.getStatus());
     }
 
+    @When("the request is sent to search for this pet by ID")
+    public void theRequestIsSentToSearchForThisPetByID() {
+        petService.getPetById(petWorld.getPetId());
+        petDTO = then().extract().body().as(PetDTO.class);
+    }
+
+    @And("the pet no longer exists in the store")
+    public void thePetNoLongerExistsInTheStore() {
+        petService.getPetById(petWorld.getPetId());
+        then().statusCode(404);
+    }
+
     private PetDTO createNewPetDtoFromDataTable(List<Map<String, String>> petTable) {
+        petWorld.setPetId(TestUtils.getRandomPetId());
         CategoryDTO categoryDTO = new CategoryDTO()
                 .id(Long.valueOf(petTable.get(0).get("categoryId")))
                 .name(petTable.get(0).get("categoryName"));
         TagDTO tagDTO = new TagDTO()
                 .id(Long.valueOf(petTable.get(0).get("tagId")))
                 .name(petTable.get(0).get("tagName"));
-        petWorld.setPetId(TestUtils.getRandomPetId());
-
         return new PetDTO()
-                .status(PetDTO.StatusEnum.fromValue(petTable.get(0).get("status")))
                 .id(petWorld.getPetId())
                 .name(petTable.get(0).get("name"))
-                .photoUrls(List.of(petTable.get(0).get("photoUrls")))
                 .category(categoryDTO)
-                .tags(List.of(tagDTO));
+                .photoUrls(List.of(petTable.get(0).get("photoUrls")))
+                .tags(List.of(tagDTO))
+                .status(PetDTO.StatusEnum.fromValue(petTable.get(0).get("status")));
     }
 
 }
