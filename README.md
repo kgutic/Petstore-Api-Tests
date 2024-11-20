@@ -5,8 +5,8 @@
 This repository contains automated tests for the [Petstore API](https://petstore.swagger.io/). The tests are written in Java using Cucumber and the Serenity BDD framework. 
 The tests cover a few basic operations like creating, retrieving, and deleting pets, along with validating the responses and ensuring data integrity.
 ## Getting Started
-To explore the tests and generate a Serenity test report:
-- First clone the repository and make sure Maven and JDK is installed on your machine
+To run the tests and generate a Serenity test report:
+- First clone the repository and make sure JDK and Git is installed on your machine
 - Run the following command in the project
 `./mvnw clean verify`
 - The console output will include the lines
