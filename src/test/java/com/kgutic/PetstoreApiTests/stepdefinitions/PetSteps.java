@@ -18,7 +18,7 @@ import java.util.Map;
 import static net.serenitybdd.rest.SerenityRest.then;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class PetAdministrationSteps {
+public class PetSteps {
     private PetDTO petDTO;
     @Shared
     private PetService petService;
