@@ -2,6 +2,7 @@ package com.kgutic.api.datatables;
 
 import io.cucumber.java.DataTableType;
 
+import java.util.List;
 import java.util.Map;
 
 public class DataTableTransformer {
@@ -11,7 +12,7 @@ public class DataTableTransformer {
                 row.get("name"),
                 Long.parseLong(row.get("categoryId")),
                 row.get("categoryName"),
-                row.get("photoUrls"),
+                List.of(row.get("photoUrls")),
                 Long.parseLong(row.get("tagId")),
                 row.get("tagName"),
                 row.get("status"));

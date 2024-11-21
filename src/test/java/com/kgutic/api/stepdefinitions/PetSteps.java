@@ -55,7 +55,7 @@ public class PetSteps {
         assertThat(petDTO.getName()).isEqualTo(expectedPet.getName());
         assertThat(petDTO.getCategory().getId()).isEqualTo(expectedPet.getCategoryId());
         assertThat(petDTO.getCategory().getName()).isEqualTo(expectedPet.getCategoryName());
-        assertThat(petDTO.getPhotoUrls().get(0)).isEqualTo(expectedPet.getPhotoUrls());
+        assertThat(petDTO.getPhotoUrls()).isEqualTo(expectedPet.getPhotoUrls());
         assertThat(petDTO.getStatus().getValue()).isEqualTo(expectedPet.getStatus());
     }
 
