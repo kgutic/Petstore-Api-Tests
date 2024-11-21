@@ -1,4 +1,4 @@
-package com.kgutic.PetstoreApiTests.world;
+package com.kgutic.api.world;
 
 import lombok.Data;
 

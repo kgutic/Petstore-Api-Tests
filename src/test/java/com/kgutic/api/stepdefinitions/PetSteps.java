@@ -1,9 +1,9 @@
-package com.kgutic.PetstoreApiTests.stepdefinitions;
+package com.kgutic.api.stepdefinitions;
 
-import com.kgutic.PetstoreApiTests.config.TestUtils;
-import com.kgutic.PetstoreApiTests.datatables.Pet;
-import com.kgutic.PetstoreApiTests.pet.PetService;
-import com.kgutic.PetstoreApiTests.world.PetWorld;
+import com.kgutic.api.config.TestUtils;
+import com.kgutic.api.datatables.Pet;
+import com.kgutic.api.pet.PetService;
+import com.kgutic.api.world.PetWorld;
 import com.kgutic.pss.generated.model.CategoryDTO;
 import com.kgutic.pss.generated.model.PetDTO;
 import com.kgutic.pss.generated.model.TagDTO;

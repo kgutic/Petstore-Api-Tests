@@ -1,8 +1,8 @@
-package com.kgutic.PetstoreApiTests.stepdefinitions;
+package com.kgutic.api.stepdefinitions;
 
-import com.kgutic.PetstoreApiTests.config.TestConfiguration;
-import com.kgutic.PetstoreApiTests.pet.PetService;
-import com.kgutic.PetstoreApiTests.world.PetWorld;
+import com.kgutic.api.config.TestConfiguration;
+import com.kgutic.api.pet.PetService;
+import com.kgutic.api.world.PetWorld;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.restassured.RestAssured;

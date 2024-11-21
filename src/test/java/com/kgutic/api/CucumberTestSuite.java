@@ -1,4 +1,4 @@
-package com.kgutic.PetstoreApiTests;
+package com.kgutic.api;
 
 import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;

@@ -1,4 +1,4 @@
-package com.kgutic.PetstoreApiTests.stepdefinitions;
+package com.kgutic.api.stepdefinitions;
 
 import io.cucumber.java.en.Then;
 

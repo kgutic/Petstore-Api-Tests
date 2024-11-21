@@ -1,4 +1,4 @@
-package com.kgutic.PetstoreApiTests.pet;
+package com.kgutic.api.pet;
 
 import com.kgutic.pss.generated.model.PetDTO;
 import io.restassured.http.ContentType;

@@ -1,4 +1,4 @@
-package com.kgutic.PetstoreApiTests.datatables;
+package com.kgutic.api.datatables;
 
 import io.cucumber.java.DataTableType;
 

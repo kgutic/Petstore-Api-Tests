@@ -1,4 +1,4 @@
-package com.kgutic.PetstoreApiTests.datatables;
+package com.kgutic.api.datatables;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
