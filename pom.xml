@@ -14,8 +14,7 @@
 		<encoding>UTF-8</encoding>
 
 		<serenity.version>4.2.8</serenity.version>
-		<junit-platform-launcher.version>1.11.0</junit-platform-launcher.version>
-		<junit-5.version>5.11.0</junit-5.version>
+		<junit.version>5.11.3</junit.version>
 		<logback-classic.version>1.5.8</logback-classic.version>
 		<assertj-core.version>3.26.3</assertj-core.version>
 		<openapi-generator-maven-plugin.version>7.6.0</openapi-generator-maven-plugin.version>
@@ -53,21 +52,9 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.junit.platform</groupId>
-			<artifactId>junit-platform-launcher</artifactId>
-			<version>${junit-platform-launcher.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
-			<version>${junit-5.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.junit.vintage</groupId>
 			<artifactId>junit-vintage-engine</artifactId>
-			<version>${junit-5.version}</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -122,14 +109,6 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.5.0</version>
-				<configuration>
-					<skip>true</skip>
-				</configuration>
-			</plugin>
 			<plugin>
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<version>3.5.0</version>
