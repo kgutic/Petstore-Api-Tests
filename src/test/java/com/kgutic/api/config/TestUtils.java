@@ -9,4 +9,10 @@ public class TestUtils {
         log.info("The random petId is {}", randomPetId);
         return randomPetId;
     }
+
+    public static long getRandomOrderId() {
+        long randomOrderId = (long) (Math.random() * 1000);
+        log.info("The random orderID is {}", randomOrderId);
+        return randomOrderId;
+    }
 }

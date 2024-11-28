@@ -2,6 +2,7 @@ package com.kgutic.api.datatables;
 
 import io.cucumber.java.DataTableType;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -16,5 +17,15 @@ public class DataTableTransformer {
                 Long.parseLong(row.get("tagId")),
                 row.get("tagName"),
                 row.get("status"));
+    }
+
+    @DataTableType
+    public Order orderTransformer(Map<String, String> row) {
+        return new Order(
+                Integer.parseInt(row.get("quantity")),
+                OffsetDateTime.parse(row.get("shipDate")),
+                row.get("status"),
+                Boolean.parseBoolean(row.get("complete"))
+        );
     }
 }

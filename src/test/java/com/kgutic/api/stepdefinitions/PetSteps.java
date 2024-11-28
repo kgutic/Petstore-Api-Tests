@@ -36,8 +36,8 @@ public class PetSteps {
         petDTO = then().extract().body().as(PetDTO.class);
     }
 
-    @Given("a new pet is added with following details")
-    public void aNewPetIsAddedWithFollowingDetails(List<Map<String, String>> petTable) {
+    @Given("a new pet is successfully added with following details")
+    public void aNewPetIsSuccessfullyAddedWithFollowingDetails(List<Map<String, String>> petTable) {
         petDTO = createNewPetDtoFromDataTable(petTable);
         petService.createPet(petDTO);
     }
