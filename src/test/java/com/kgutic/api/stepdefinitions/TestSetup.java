@@ -1,6 +1,7 @@
 package com.kgutic.api.stepdefinitions;
 
 import com.kgutic.api.config.TestConfiguration;
+import com.kgutic.api.order.OrderService;
 import com.kgutic.api.pet.PetService;
 import com.kgutic.api.world.PetWorld;
 import io.cucumber.java.After;
@@ -18,6 +19,8 @@ public class TestSetup {
     private PetWorld petWorld;
     @Shared
     private PetService petService;
+    @Shared
+    private OrderService orderService;
 
     @Before
     public void setTheBaseUri(){
@@ -30,6 +33,13 @@ public class TestSetup {
     public void deletePet(){
         if (petWorld.getPetId() != null)  {
             petService.deletePet(petWorld.getPetId());
+        }
+    }
+
+    @After
+    public void deleteOrder(){
+        if (petWorld.getOrderId() != null)  {
+            orderService.deleteOrder(petWorld.getOrderId());
         }
     }
 }
