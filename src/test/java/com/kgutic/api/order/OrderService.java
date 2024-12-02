@@ -32,7 +32,6 @@ public class OrderService {
                 .basePath(ORDER_PATH)
                 .accept(ContentType.JSON)
                 .get(String.valueOf(orderId));
-        then().log().all();
     }
 
     public void deleteOrder(long orderId){
