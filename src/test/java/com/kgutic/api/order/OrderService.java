@@ -9,7 +9,6 @@ import io.restassured.mapper.ObjectMapper;
 import java.lang.reflect.Type;
 
 import static net.serenitybdd.rest.SerenityRest.given;
-import static net.serenitybdd.rest.SerenityRest.then;
 
 public class OrderService {
     public static final String ORDER_PATH = "api/v3/store/order";
@@ -32,7 +31,6 @@ public class OrderService {
                 .basePath(ORDER_PATH)
                 .accept(ContentType.JSON)
                 .get(String.valueOf(orderId));
-        then().log().all();
     }
 
     public void deleteOrder(long orderId){
