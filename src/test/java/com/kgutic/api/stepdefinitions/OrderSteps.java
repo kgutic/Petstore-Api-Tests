@@ -42,6 +42,28 @@ public class OrderSteps {
         assertThat(orderDTO.getComplete()).isEqualTo(expectedOrder.isComplete());
     }
 
+    @And("a new order is successfully placed with")
+    public void aNewOrderIsSuccessfullyPlacedWith(List<Map<String, String>> orderTable) {
+        orderService.createOrder(createNewOrderDtoFromDataTable(orderTable));
+    }
+
+    @When("the request is sent to search for this order by ID")
+    public void theRequestIsSentToSearchForThisOrderByID() {
+        orderService.getOrderById(petWorld.getOrderId());
+        orderDTO = then().extract().body().as(OrderDTO.class);
+    }
+
+    @When("the request is sent to delete this order")
+    public void theRequestIsSentToDeleteThisOrder() {
+        orderService.deleteOrder(petWorld.getOrderId());
+    }
+
+    @And("this order no longer exists in the store")
+    public void thisOrderNoLongerExistsInTheStore() {
+        orderService.getOrderById(petWorld.getOrderId());
+        then().statusCode(404);
+    }
+
     private OrderDTO createNewOrderDtoFromDataTable(List<Map<String, String>> orderTable) {
         petWorld.setOrderId(TestUtils.getRandomOrderId());
         return new OrderDTO()
