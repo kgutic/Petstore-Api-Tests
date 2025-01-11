@@ -2,7 +2,7 @@
 
 
 ## Overview
-This project demonstrates a Behavior-Driven Development (BDD) approach to testing the [Petstore API](https://petstore.swagger.io/) using Java, Rest Assured, Cucumber, and SerenityBDD.
+This project demonstrates a Behavior-Driven Development (BDD) approach to testing the [Petstore API](https://petstore3.swagger.io/) using Java, Rest Assured, Cucumber, and SerenityBDD.
 
 It showcases a comprehensive testing framework designed to:
 - Validate the functionality of the Petstore Swagger API.
