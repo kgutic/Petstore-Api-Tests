@@ -28,4 +28,15 @@ public class DataTableTransformer {
                 Boolean.parseBoolean(row.get("complete"))
         );
     }
+
+    @DataTableType
+    public User userTransformer(Map<String, String> row) {
+        return new User(
+                row.get("username"),
+                row.get("firstName"),
+                row.get("lastName"),
+                row.get("email"),
+                row.get("phone"),
+                Integer.parseInt(row.get("status")));
+    }
 }

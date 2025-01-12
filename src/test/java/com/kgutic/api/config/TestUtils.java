@@ -1,7 +1,7 @@
 package com.kgutic.api.config;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.RandomStringUtils;
+import java.util.UUID;
 
 @Slf4j
 public class TestUtils {
@@ -24,6 +24,6 @@ public class TestUtils {
     }
 
     public static String getRandomPassword() {
-        return RandomStringUtils.secure().next(10);
+        return UUID.randomUUID().toString().replaceAll("-", "").substring(0, 10);
     }
 }
