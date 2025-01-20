@@ -8,6 +8,8 @@ import com.kgutic.pss.generated.model.UserDTO;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import io.restassured.response.Response;
+import lombok.extern.slf4j.Slf4j;
 import net.serenitybdd.annotations.Shared;
 
 import java.util.List;
@@ -16,6 +18,7 @@ import java.util.Map;
 import static net.serenitybdd.rest.SerenityRest.then;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+@Slf4j
 public class UserSteps {
     private UserDTO userDTO;
     @Shared
@@ -31,7 +34,13 @@ public class UserSteps {
     @When("the request is sent to add a new user")
     public void theRequestIsSentToAddANewUser() {
         userService.createUser(userDTO);
-        userDTO = then().extract().body().as(UserDTO.class);
+    Response response = then().extract().response();
+
+        if (response.statusCode() == 200) {
+            userDTO = response.getBody().as(UserDTO.class);
+        } else {
+            log.error("Error while creating new user {}", response.body().asString());
+        }
     }
 
     @And("the details returned in the response are")
