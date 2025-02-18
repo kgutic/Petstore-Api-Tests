@@ -11,6 +11,7 @@ import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import lombok.extern.slf4j.Slf4j;
 import net.serenitybdd.annotations.Shared;
+import org.apache.http.HttpStatus;
 
 import java.util.List;
 import java.util.Map;
@@ -36,7 +37,7 @@ public class UserSteps {
         userService.createUser(userDTO);
     Response response = then().extract().response();
 
-        if (response.statusCode() == 200) {
+        if (response.statusCode() == HttpStatus.SC_OK) {
             userDTO = response.getBody().as(UserDTO.class);
         } else {
             log.error("Error while creating new user {}", response.body().asString());
